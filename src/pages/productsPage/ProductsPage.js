@@ -13,8 +13,12 @@ class ProductsPage extends React.Component{
         this.setState({input: e.target.value})
     }
     addProduct = (e) => {
-        this.setState({products: [...this.state.products, this.state.input]})
-        this.setState({input: ''})
+        if (this.state.input === ''){
+            return false
+        }else {
+            this.setState({products: [...this.state.products, this.state.input]})
+            this.setState({input: ''})
+        }
     }
     clearProducts = () => {
         this.setState({products: []})
